@@ -239,13 +239,13 @@
     el.querySelector('.skip-intro').onclick = function () {
       screenToken++;
       arm.style.transition = 'none';
-      arm.style.transform = 'translate(150px, 200px)';
+      arm.style.transform = P.rest;
       for (var i = 0; i < 3; i++) bite(i);
       say.textContent = 'Welcome! Let’s learn mathematics.';
       revealPick();
     };
 
-    var bites = [[-21, -3], [-19, 8], [-17, -12]];
+    var P = Characters.applePose, bites = P.bites;
     function bite(i) {
       var p = bites[i], NS = 'http://www.w3.org/2000/svg';
       var hole = document.createElementNS(NS, 'circle');
@@ -273,21 +273,21 @@
 
     (async function () {
       await sleep(700); if (tok !== screenToken) return;
-      arm.style.transform = 'translate(122px, 130px) rotate(-8deg)';
+      arm.style.transform = P.near;
       await sleep(1000);
       for (var i = 0; i < 3; i++) {
         if (tok !== screenToken) return;
-        arm.style.transform = 'translate(118px, 127px) rotate(-8deg)';
+        arm.style.transform = P.bite;
         await sleep(180);
         bite(i); Sfx.crunch();
         var c = el.querySelector('.crunch'); c.classList.remove('pop'); void c.offsetWidth; c.classList.add('pop');
         svg.classList.add('chewing');
-        arm.style.transform = 'translate(128px, 136px) rotate(-8deg)';
+        arm.style.transform = P.back;
         await sleep(650);
       }
       if (tok !== screenToken) return;
       svg.classList.remove('chewing');
-      arm.style.transform = 'translate(150px, 200px)';
+      arm.style.transform = P.rest;
       await sleep(700);
       await typeText('Welcome! Let’s learn mathematics.');
       await sleep(400);

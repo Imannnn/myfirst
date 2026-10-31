@@ -42,7 +42,7 @@ numbers, negatives, decimals and fractions such as `7/12`.
 
 ### Characters
 
-There are eight medieval characters, all drawn in SVG in `js/characters.js`:
+There are eight medieval characters, painted in the style of Renaissance oil portraits (three-quarter pose, light from the left, glazed skin, velvet and gold embroidery, gilded frames). They are rendered as SVG in `js/characters.js`, so they can animate (talking, eating the apple):
 
 - Master Aldric (the mentor)
 - Lady Isolde
